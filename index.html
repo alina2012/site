@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://assets3.insales.ru/assets/1/7308/1227916/1561988348/theme.css" rel="stylesheet" type="text/css" />
+<link href="https://assets3.insales.ru/assets/1/7308/1227916/1561988348/ie.css" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Exo+2&subset=cyrillic,latin" rel="stylesheet" />
+<link href="//fonts.googleapis.com/css?family=Lobster&subset=cyrillic,latin" rel="stylesheet" />
+<link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" crossorigin="anonymous" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="\myshop.ru\script.js" type="text/javascript"></script>
+<title>
+    CoffeeTime
+</title>
+<meta charset="UTF-8" />
+</head>
+<body class="adaptive">
+<div class="page-wrapper">
+  <div class="page-inner container">
+    <header class="main-header container">
+  <div class="row middle-xl">
+    <div class="logotype cell-xl-4 text-center-xl cell-sm-12">
+        <a title="CoffeTime" href='\myshop.ru\index.php' class="logotype-link">
+          <span class="logotype-text">CoffeeTime</span>
+            <small class="logotype-subtitle">...adventure awaits, but first coffee...</small>
+        </a>
+    </div>
+    <div class="user-toolbar cell-xl-4 text-right-xl hidden-sm">
+      <a title="Личный кабинет" class="compare-button button button-circle is-gray" href="\myshop.ru\account.php">
+        <i class="icon compare-icon ion-person"></i>
+      </a>
+      <div class="shopcart-widget">
+        <a title="Корзина" href="\myshop.ru\basket.php" class="shopcart-link button button-circle is-primary">
+          <i class="icon shopcart-icon ion-ios-cart-outline"></i>
+          <span class="shopcart-counter js-shopcart-amount"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="collection-menu-horizontal-wrapper container">
+      <ul class="collection-menu-horizontal list js-edge-calc text-center-xl"> 
+          <li class="list-item menu-item text-left-xl " data-handle="drink">
+            <a title="Напитки" href="\myshop.ru\index.php\#drink" class="menu-link">
+              <span class="link-text">Напитки</span> 
+            </a>
+          </li>
+          <li class="list-item menu-item text-left-xl " data-handle="eat">
+            <a title="Десерты" href="\myshop.ru\index.php\#eat" class="menu-link">
+              <span class="link-text">Десерты</span>
+            </a>
+          </li>
+          <li class="list-item menu-item text-left-xl " data-handle="addres">
+            <a title="Контакты" href="\myshop.ru\addres.php" class="menu-link">
+              <span class="link-text">Контакты</span>   
+            </a>
+          </li>
+      </ul>
+    </div>
+  <div class="promo-slider-wrapper container">
+    <div class="promo-slider js-promo-slider swiper-container">
+      <div class="swiper-wrapper">
+          <div class="promo-slide swiper-slide">
+                <img class="slide-image" src="https://www.beboss.ru/new/files/06/e1/qy5ImIYhEho-N7edZO.1180x600.jpg" />
+          </div>
+      </div>
+    </div>
+  </div>
+    <div class="benefits container">
+      <div class="row">
+        <div class="benefit cell-xl-4 cell-sm-12">
+          <span class="show-xl text-center-xl">
+            <div class="benefit-image">
+                <img src="https://i.pinimg.com/originals/5d/6b/41/5d6b41303f72780f13bc9a12d2f93192.jpg" height="142" width="142" title="Душевные разговоры и поддержка" alt="Душевные разговоры и поддержка" />
+            </div>
+            <div class="benefit-title">Самая теплая атмосфера</div>
+          </span>
+        </div>
+        <div class="benefit cell-xl-4 cell-sm-12">
+          <span class="show-xl text-center-xl">
+            <div class="benefit-image">
+                <img src="https://thumbs.dreamstime.com/b/%D0%B3%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B9-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%BA%D0%BE%D1%84%D0%B5%D0%B9%D0%BD%D0%BE%D0%B9-%D1%87%D0%B0%D1%88%D0%BA%D0%B8-51544617.jpg" height="142" width="142" title="Все для вашего удобства" alt="Все для вашего удобства" />
+            </div>
+            <div class="benefit-title">Оплата наличными или по карте</div>
+          </span>
+        </div>
+        <div class="benefit cell-xl-4 cell-sm-12">
+          <span class="show-xl text-center-xl">
+            <div class="benefit-image">
+                <img src="https://i.pinimg.com/originals/3b/8e/35/3b8e35e0a470421f34794aff4f1a6765.jpg" height="142" width="142" title="Гарантия качества продукции" alt="Гарантия качества продукции" />
+            </div>
+            <div class="benefit-title">Работаем круглосуточно</div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  <div class="title-collections container">
+    <ul class="tabs-menu collections-tabs text-center-xl">
+          <li class="tabs-item menu-item  active ">
+            <a class="tabs-link menu-link" name="drink" data-toggle="tabs">Напитки</a>
+          </li>
+    </ul>
+    <div class="tabs-list collections-list">
+          <div class="tab-block  active " id="drink">
+          <div class="products-list row">
+           <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="http://api.bushe.notissimus.com/images/product/aba67f07-c581-46d7-96ac-89fbab7e31fe" alt="Кофе Американо" title="Классический Американо" class="product-image" height="256" width="280">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Кофе Американо
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden1" name="variant_id" data-product-variants>
+					          <option value="---">Выберите объем:</option>
+					          <option value="160">150 мл</option>
+					          <option value="180">250 мл</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice1"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity1" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					      	</div>
+					        <center>
+					           <div class="buy1" data-id="1"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text">Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+            <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="https://api.bushe.notissimus.com/images/product/7ca25f24-64fb-43a7-be10-5729f608d914" alt="Кофе Капучино" title="Классический Капучино" class="product-image" height="256" width="280">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Кофе Капучино
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden2" name="variant_id" data-product-variants>
+					          <option value="---">Выберите объем:</option>
+					          <option value="180">220 мл</option>
+					          <option value="210">320 мл</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice2"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					      
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity2" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					          </div>
+					        <center>
+					           <div class="buy2" data-id="2"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text" >Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+            <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="https://api.bushe.notissimus.com/images/product/483ab1b5-53d3-4728-aae0-e27e5fa5eb8c" alt="Кофе Латте" title="Классический Латте" class="product-image" height="256" width="280">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Кофе Латте
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden3" name="variant_id" data-product-variants>
+					          <option value="---">Выберите объем:</option>
+					          <option value="190">270 мл</option>
+					          <option value="220">350 мл</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice3"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					      
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity3" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					          </div>
+					        <center>
+					           <div class="buy3" data-id="3"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text">Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+            <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="https://api.bushe.notissimus.com/images/product/2be56011-ac16-497d-b3e0-73dcad860b46" alt="Какао" title="Ароматное какао" class="product-image" height="256" width="280">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Какао
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden4" name="variant_id" data-product-variants>
+					          <option value="---">Выберите объем:</option>
+					          <option value="190">220 мл</option>
+					          <option value="220">320 мл</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice4"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					      
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity4" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					          </div>
+					        <center>
+					           <div class="buy4" data-id="4"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text">Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="title-collections container">
+    <ul class="tabs-menu collections-tabs text-center-xl">
+          <li class="tabs-item menu-item  active ">
+            <a class="tabs-link menu-link" name="eat" data-toggle="tabs">Десерты</a>
+          </li>
+    </ul>
+    <div class="tabs-list collections-list">
+          <div class="tab-block  active " id="eat">
+          <div class="products-list row">
+           <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="http://api.bushe.notissimus.com/images/product/2c77f277-e4f9-4cc8-82e7-f4469e8ebfaf" alt="Чиз-кейк" title="Сливочно-сырный крем, покрытый пюре из лесных ягод, на бисквите из крошки песочного теста." class="product-image" height="256" width="280">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Чиз-кейк
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden5" name="variant_id" data-product-variants>
+					          <option value="---">Выберите размер:</option>
+					          <option value="150">0,12 кг</option>
+					          <option value="990">0,85 кг</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice5"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					      
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity5" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					          </div>
+					        <center>
+					           <div class="buy5" data-id="5"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text">Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+            <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="https://api.bushe.notissimus.com/images/product/f28c125c-331b-4646-906a-df2c4f1fd721" alt="Наполеон" title="Традиционный торт из слоеного теста с заварным кремом" class="product-image" height="256" width="280">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Наполеон
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden6" name="variant_id" data-product-variants>
+					          <option value="---">Выберите размер:</option>
+					          <option value="120">0,15 кг</option>
+					          <option value="600">0,6 кг</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice6"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					      
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity6" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					          </div>
+					        <center>
+					           <div class="buy6" data-id="6"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text">Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+            <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="https://api.bushe.notissimus.com/images/product/720f245d-e328-441a-bbf6-c87404741de7" alt="Медовик" title="Традиционный торт с ароматным медовым бисквитом и кремом из натуральных сливок" class="product-image" height="256" width="280">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Медовик
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden7" name="variant_id" data-product-variants>
+					          <option value="---">Выберите размер:</option>
+					          <option value="110">0,1 кг</option>
+					          <option value="600">0,53 кг</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice7"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					      
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity7" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					          </div>
+					        <center>
+					           <div class="buy7" data-id="7"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text">Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+            <div>
+              <div>
+                <div class="product-photo">
+                  <div class="product-link with-object-fit">
+                      <img src="https://api.bushe.notissimus.com/images/product/ab740e5b-724a-4b95-a595-33bdb8e63ce1" alt="Ягодный тарт" title="Простой и вкусный пирог на основе из слоеного теста, наполненный смородиновым конфитюром, ягодами малины, черники и черной смородины" class="product-image" height="256" width="290">
+                  </div>
+                </div>
+                <div class="product-caption">
+                  <div class="product-title">
+                    <div class="product-link">
+                    	<h2>
+                      		Ягодный тарт
+                  		</h2>
+                    </div>
+                    <br>
+                    <form onsubmit="return false;">
+					    <div class="option-selectors">
+					     	<select class="hidden8" name="variant_id" data-product-variants>
+					          <option value="---">Выберите размер:</option>
+					          <option value="130">0,2 кг</option>
+					          <option value="1200">1,45 кг</option>
+					        </select>
+					     </div>
+					     <div class="product-prices on-page">
+					       	<div>Стоимость, руб.</div>
+					        <div class="price js-product-price"><span class="coffeeprice8"></span></div>
+					        <div class="old-price js-product-old-price"></div>
+					      </div>
+					      
+					          <div class="counter" data-quantity width="25">
+					            <span class="minus"><button type="button" data-quantity-change="-1" class="button button-number count-down">
+					              <i class="icon ion-ios-minus-empty"></i>
+					            </button></span>
+					            <input type="text" value="1" min="1" max="1000" name="quantity8" class="input-number input-field"/>
+					            <span class="plus"><button type="button" data-quantity-change="1" class="button button-number count-up">
+					              <i class="icon ion-ios-plus-empty"></i>
+					            </button></span>
+					          </div>
+					        <center>
+					           <div class="buy8" data-id="8"><button class="button button-buy button-primary"  type="submit" data-item-add>
+					              <i class="icon button-icon buy-icon ion-ios-cart-outline"></i>
+					              <span class="button-text">Купить</span>
+					            </button></div>
+					        </center>
+					</form>
+				</div>
+				</div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  <div class="footer">
+    <center>
+    (<a href='\myshop.ru\admin.php'>Панель управления</a>)
+  </center>
+  </div>
+</html>
