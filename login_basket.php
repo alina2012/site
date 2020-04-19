@@ -13,7 +13,7 @@
 		}
 	}
 	if(empty($login) || empty($password)){
-		include('\myshop.ru\new-order.php');
+		include('new-order.php');
 	?>
 	<script type="text/javascript">
 		alert("Пожалуйста, заполните все поля");
@@ -28,7 +28,7 @@
 	$result = mysqli_query($db, "SELECT * FROM users WHERE login='$login'");  
 	$data = mysqli_fetch_array($result);
 	if(empty($data['password'])){
-		include('\myshop.ru\new-order.php');
+		include('new-order.php');
 	?>
 	<script type="text/javascript">
 		alert("Пользователь с таким email не зарегистрирован");
@@ -42,10 +42,10 @@
     	setcookie("token", $token);
     	$record = mysqli_query($db, "UPDATE users SET token='$token' WHERE id='$id'");
     	if ($record == TRUE){
-    			header("Location: \myshop.ru\new-order.php"); 
+    			header("Location: new-order.php"); 
     			exit();
     	} else {
-    		include('\myshop.ru\new-order.php');
+    		include('new-order.php');
 			?>
 			<script type="text/javascript">
 				alert("Ошибка авторизации");
@@ -54,7 +54,7 @@
 		exit();
 		}
 	} else{
-		include('\myshop.ru\new-order.php');
+		include('new-order.php');
 			?>
 			<script type="text/javascript">
 				alert("Ошибка авторизации, неправильный login или пароль..");

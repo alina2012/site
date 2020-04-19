@@ -26,10 +26,10 @@
 	$record = mysqli_query($db, "INSERT INTO order_table (order_id, email, composition, status) VALUES ('$order_id','$email', '$my_json', 1)");
 	if ($record =='TRUE')
    		{
-	    	header('Location: \myshop.ru\account.php');
+	    	header('Location: account.php');
 			exit;
 	    } else {
-	    	include('\myshop.ru\basket.php');
+	    	include('basket.php');
 		?>
 		<script type="text/javascript">
 		alert("Возникла ошибка при оформлении заказа, попробуйте позднее..");

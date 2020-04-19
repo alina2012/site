@@ -6,7 +6,7 @@
 	$result = mysqli_query($db, "SELECT * FROM users WHERE login='$email'");
 	$data = mysqli_fetch_array($result);
 	if(!$data['id']){
-		include('\myshop.ru\forgot.php');
+		include('forgot.php');
 			?>
 			<center>
 				<h2 style='color:#B22222'>Пользователь с таким email не зарегистрирован!</h2>
@@ -35,10 +35,10 @@
 	$body = 'Вы указали свой почтовый адрес для восстановления пароля в магазине CoffeTime. Пожалуйста, введите этот код:<p>'.$key.'</p> в окошко на сайте.';
 	$mail->Body = $body;
 	if($mail->send()){
-		header('Location: \myshop.ru\key.php');
+		header('Location: key.php');
 		exit;
 	} else {
-		include('\myshop.ru\forgot.php');
+		include('forgot.php');
 		?>
 		<center>
 			<h2 style='color:#B22222'>Не удалось отправить код, пожалуйста, попробуйте еще раз, <?php echo $mail->ErrorInfo ?></h2>

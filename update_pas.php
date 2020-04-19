@@ -9,7 +9,7 @@
 		if(empty($data['id'])){
 			setcookie("key", "", time() - 3600);
 			setcookie("email", "", time() - 3600);
-			include('\myshop.ru\account.php');
+			include('account.php');
 			?>
 			<script type="text/javascript">
 				alert("Ошибка сброса пароля");
@@ -25,12 +25,12 @@
     	if ($record == TRUE){
     			setcookie("key", "", time() - 3600);
     			setcookie("email", "", time() - 3600);
-    			header("Location: \myshop.ru\account.php"); 
+    			header("Location: account.php"); 
     			exit();
     	} else {
     		setcookie("key", "", time() - 3600);
     		setcookie("email", "", time() - 3600);
-    		include('\myshop.ru\account.php');
+    		include('account.php');
 			?>
 			<script type="text/javascript">
 				alert("Ошибка авторизации");
