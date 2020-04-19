@@ -9,7 +9,7 @@
   <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" crossorigin="anonymous" rel="stylesheet" />
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="\myshop.ru\script.js" type="text/javascript"></script>
+  <script src="script.js" type="text/javascript"></script>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>
     Личный кабинет | CoffeeTime
@@ -100,12 +100,12 @@ if(!(isset($_COOKIE['token']))){
             </div>
             <div class='field fc'>
               <div class='field-content'>
-              <a href="\myshop.ru\forgot.php">Восстановить пароль</a>
+              <a href="\forgot.php">Восстановить пароль</a>
               </div>
             </div>
             <div class='field fc'>
               <div class='field-content'>
-              <a href="\myshop.ru\signup.php">Зарегистрироваться</a>
+              <a href="\signup.php">Зарегистрироваться</a>
               </div>
             </div>
             </div>
