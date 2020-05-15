@@ -1,4 +1,9 @@
-<!-- контактная информация -->
+	<?php
+	/**
+	 * @file
+	 * User account
+	 */
+	?>
 <!DOCTYPE html>
 <html ng-app="newApp">
 <head>

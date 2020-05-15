@@ -1,7 +1,23 @@
 <?php
+	/**
+	* @file
+	* Update password
+	*/  
 	require_once("bd.php");
+	/**
+	 * @var $email
+	 * Email entered
+	 */
 	$email = $_COOKIE['email'];
+	/**
+	 * @var $pass
+	 * Password entered
+	 */
 	$pass = $_POST['password'];
+	/**
+	 * @var $conf_pass
+	 * Password for confirmation
+	 */
 	$conf_pass = $_POST['conf_pass'];
 	if($pass == $conf_pass){
 		$result = mysqli_query($db, "SELECT * FROM users WHERE login='$email'");
@@ -18,7 +34,15 @@
 	<?php
 			exit();
 		}
+	/**
+	 * @var $salt
+	 * Hash salt
+	 */
 		$salt = $data['salt'];
+	/**
+	 * @var $password
+	 * New password
+	 */
 		$password = hash('sha256',($pass . $salt));
 		$password = mysqli_real_escape_string ( $db , $password);
 		$record = mysqli_query($db, "UPDATE users SET password='$password' WHERE login='$email'");

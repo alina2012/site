@@ -1,4 +1,9 @@
-<!-- перечень заказов -->
+<?php
+	/**
+    * @file
+    * Order list
+    */ 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,11 +122,22 @@ if(!(isset($_COOKIE['token']))){
   };
   if(isset($_COOKIE['token'])){
     require_once("bd.php");
+   	/**
+    * @var $token
+    * Authorization token
+    */
     $token = $_COOKIE['token'];
     $result = mysqli_query($db, "SELECT * FROM users WHERE token='$token'");
+   	/**
+    * @var $data
+    * User data from database
+    */
     $data = mysqli_fetch_array($result);
+   	/**
+    * @var $email
+    * User email
+    */
     $email = $data['login'];
-    
   ?>
       <li class="breadcrumb-item"><span class="breadcrumb-link current-page">Кабинет покупателя</span></li>
         </ul>
@@ -185,36 +201,96 @@ if(!(isset($_COOKIE['token']))){
         <?php
         $res = mysqli_query($db, "SELECT * FROM order_table WHERE email='$email'");
           while($data1 = mysqli_fetch_array($res)){
+      	/**
+    	* @var $comp
+    	* Order composition from the database
+    	*/
           $comp = $data1['composition'];
           $my_new_array = json_decode($comp, true);
           $out='';
+      	/**
+    	* @var $price
+    	* Order cost
+    	*/
           $price = 0;
           echo '<div class="cart-list cell-xl-12"><div class="cart-header row"><div class="cart-head item-image cell-xs-12 cell-md-4 cell-lg-2 cell-xl-2">'.$data1['order_id'].'</div>';
           foreach($my_new_array as $key => $value) { 
             $res1 = mysqli_query($db, "SELECT * FROM descript WHERE data_id='$key'");
             $data2 = mysqli_fetch_array($res1);
+            /**
+		    * @var $name
+		    * Name of product
+		    */
             $name = $data2['description'];
             $out .= $name;
             $out .= '. ';
             
              if(isset($value['price1']) && !isset($value['price2'])){
+             	/**
+			    * @var $pr
+			    * Cost of product
+			    */
               $pr = $value['price1'];
+              /**
+			    * @var $count
+			    * Count of product
+			    */
               $count = $value['quantity1'];
+              /**
+			    * @var $all
+			    * The cost of all goods
+			    */
               $all = $pr * $count;
                $price += $all;
             }
             if(isset($value['price2']) && !isset($value['price1'])){
+               /**
+			    * @var $pr
+			    * Cost of product
+			    */
                $pr = $value['price2'];
+               /**
+			    * @var $count
+			    * Count of product
+			    */
               $count = $value['quantity2'];
+              /**
+			    * @var $all
+			    * The cost of all goods
+			    */
               $all = $pr * $count;
                $price += $all;
             }
             if(isset($value['price1']) && isset($value['price2'])){
+              /**
+			    * @var $pr1
+			    * Cost of product
+			    */
               $pr1 = $value['price1'];
+              /**
+			    * @var $count1
+			    * Count of product
+			    */
               $count1 = $value['quantity1'];
+              /**
+			    * @var $all1
+			    * The cost of all goods
+			    */
               $all1 = $pr1 * $count1;
+              /**
+			    * @var $pr
+			    * Cost of product
+			    */
               $pr2 = $value['price2'];
+              /**
+			    * @var $count2
+			    * Count of product
+			    */
               $count2 = $value['quantity2'];
+              /**
+			    * @var $all2
+			    * The cost of all goods
+			    */
               $all2 = $pr2 * $count2;
               $all = $all1 + $all2;
               $price += $all;
@@ -225,6 +301,10 @@ if(!(isset($_COOKIE['token']))){
           echo '<div class="cart-head item-total js-item-total-price cell-xs-12 cell-md-4 cell-xl-2">'.$price.'</div>';
           $status = $data1['status'];
            $res3 = mysqli_query($db, "SELECT * FROM status_description WHERE num='$status'");
+           /**
+			* @var $data3
+			* Status description
+			*/
           $data3 = mysqli_fetch_array($res3);
           echo '<div class="cart-head item-remove cell-xs-12 cell-md-4 cell-xl-1">'.$data3['description'].'</div>';
           echo '</div><br><hr></div>';

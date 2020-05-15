@@ -1,30 +1,54 @@
 <?php
+	/**
+    * @file
+    * User registration
+    */
 	require_once("bd.php");
 	if(isset($_POST['client'])){
+	/**
+    * @var $name
+    * User name
+    */
 		$name = $_POST['client'];
 		if($name == ''){
 			unset($name);
 		}
 	}
 	if(isset($_POST['phone'])){
+	/**
+    * @var $phone
+    * User phone
+    */
 		$phone = $_POST['phone'];
 		if($phone == ''){
 			unset($phone);
 		}
 	}
 	if(isset($_POST['email'])){
+	/**
+    * @var $login
+    * User login
+    */
 		$login = $_POST['email'];
 		if($login == ''){
 			unset($login);
 		}
 	}
 	if(isset($_POST['password'])){
+	/**
+    * @var $password
+    * User Password
+    */
 		$password = $_POST['password'];
 		if($password == ''){
 			unset($password);
 		}
 	}
 	if(isset($_POST['conf-password'])){
+	/**
+    * @var $confPass
+    * Password for confirmation
+    */
 		$confPass = $_POST['conf-password'];
 		if($confPass == ''){
 			unset($confPass);
@@ -71,6 +95,10 @@
 		}
 	}
 	$salt = random_bytes(10);
+	/**
+    * @var $salt
+    * Hash salt
+    */
 	$salt = bin2hex($salt);
 	$password = hash('sha256',($password . $salt));
 	$name = mysqli_real_escape_string ( $db , $name);
@@ -78,6 +106,10 @@
 	$login = mysqli_real_escape_string ( $db , $login);
 	$password = mysqli_real_escape_string ( $db , $password);
 	$salt = mysqli_real_escape_string ( $db , $salt);
+	/**
+    * @var $token
+    * Authorization token
+    */
 	$token = bin2hex(random_bytes(32));
     setcookie("token", $token);
     

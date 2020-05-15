@@ -1,4 +1,9 @@
-<!-- корзина -->
+<?php
+	/**
+    * @file
+    * Basket of goods
+    */
+?>
 <!DOCTYPE html>
 <html>
 <head>

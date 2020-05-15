@@ -1,4 +1,9 @@
-<!-- регистрация -->
+<?php
+/**
+ * @file
+ * Registration Page
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,4 +1,9 @@
-<!-- контакты -->
+<?php
+	/**
+    * @file
+    * Contact information
+    */
+?>
 <!DOCTYPE html>
 <html>
 <head>

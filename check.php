@@ -1,5 +1,17 @@
 <?php
+	/**
+	 * @file
+	 * Password reser key verification
+	 */
+	/**
+	* @var $key
+	*Key entered by user
+	*/
 	$key = $_POST['key'];
+	/**
+	 * @var $right_key
+	 * Right key
+	 */
 	$right_key = $_COOKIE['key'];
 	if($key != $right_key){
 		include('key.php');

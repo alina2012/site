@@ -1,4 +1,9 @@
-<!-- сброс пароля (ввод нового) -->
+<?php
+  /**
+    * @file
+    * New password input field
+    */
+?>
 <!DOCTYPE html>
 <html>
 <head>

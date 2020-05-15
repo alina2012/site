@@ -1,4 +1,10 @@
-<!-- сброс пароля (ввод кода) -->
+<?php
+/**
+ * @file
+ * Confirmation Key Entry Page
+ */
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

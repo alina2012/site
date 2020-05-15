@@ -1,3 +1,9 @@
+<?php
+/**
+ * @file
+ * Admin page, change order status
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head>

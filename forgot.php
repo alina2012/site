@@ -1,4 +1,9 @@
-<!-- сброс пароля (ввод email) -->
+<?php
+/**
+ * @file
+ * Password Recovery Page
+ */
+?>
 <!DOCTYPE html>
 <html>
 <head>

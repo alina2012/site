@@ -1,6 +1,13 @@
 <meta http-equiv="refresh" content="12">
 <?php
+	/**
+	 * @file
+	 * Bot Submission Page
+	 */
 	require_once("bd.php");
+	/**
+	 * Telegram token
+	 */
 	define('TELEGRAM_TOKEN', '1004268793:AAHicp3O1VJFNWRrj9-fmjGPERjgLP02QHE');
 	$update_id += 1;
 		$ch = curl_init();
@@ -45,6 +52,14 @@
 	            
 	        }
 	    }
+/**
+ * 
+ * Connection initialization
+ *
+ * Initializing a connection to send and receive messages
+ *
+ * @return Curl handle
+ */
 function init(){
     $ch = curl_init();
     curl_setopt_array(
@@ -61,6 +76,15 @@ function init(){
     );
     return $ch;
 }
+
+/**
+ * Message sending
+ * Send a response to telegram
+ * @param $text Request text
+ * @param $chat_id Dialogue id
+ * @param $db Connection to the database
+ *
+ */
 function message_to_telegram($text, $chat_id, $db){
     $ch = init();
     $text1 = 'Я не могу найти заказ с таким номером, пожалуйста, попробуйте еще раз';
@@ -71,6 +95,7 @@ function message_to_telegram($text, $chat_id, $db){
     	$text1 = 'Чтобы узнать статус заказа, пожалуйста, введите номер заказа';
     }
     $result = mysqli_query($db, "SELECT * FROM order_table WHERE order_id='$text'");
+    /**  Order data from the database */
 	$data = mysqli_fetch_array($result);
 	if(!empty($data['id'])){
 		$status = $data['status'];
@@ -80,6 +105,7 @@ function message_to_telegram($text, $chat_id, $db){
                 $text1 = $data1['description'];
             } 
 	} 
+	/** Message text */
 	$text = $text1;
     $data = array('chat_id' => $chat_id, 'text' => $text);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);

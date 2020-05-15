@@ -1,4 +1,9 @@
-<!-- оформление заказа -->
+  <?php
+  /**
+    * @filr
+    * Checkout
+    */
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,11 +82,31 @@
 <?php 
   require_once("bd.php");
   if(isset($_COOKIE['token'])){
+    /**
+    * @var $token
+    * Authorization token
+    */
   $token = $_COOKIE['token'];
     $result = mysqli_query($db, "SELECT * FROM users WHERE token='$token'");
+    /**
+    * @var $data
+    * User data from database
+    */
     $data = mysqli_fetch_array($result);
+    /**
+    * @var $name
+    * User name
+    */
     $name = $data['name'];
+    /**
+    * @var $phone
+    * User phone
+    */
     $phone = $data['phone'];
+    /**
+    * @var $email
+    * User email
+    */
     $email = $data['login'];
   ?>
 <div class="cart-body row">

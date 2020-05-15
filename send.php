@@ -1,9 +1,21 @@
 <?php
+	/**
+    * @file 
+    * Sending Email
+    */
 	require_once("bd.php");
 	require 'lib/PHPMailer/PHPMailerAutoload.php';
+	/**
+    * @var $email
+    * Email Entered
+    */
 	$email = $_POST['email'];
 	setcookie("email", $email);
 	$result = mysqli_query($db, "SELECT * FROM users WHERE login='$email'");
+	/**
+    * @var $data
+    * User data from database
+    */
 	$data = mysqli_fetch_array($result);
 	if(!$data['id']){
 		include('forgot.php');
@@ -14,7 +26,10 @@
 			<?php
 				exit();
 	}
-
+	/**
+    * @var $key
+    * Verification Key
+    */
 	$key = random_bytes(10);
 	$key = bin2hex($key);
 	setcookie("key", $key);
