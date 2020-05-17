@@ -121,6 +121,8 @@ if(!isset($_COOKIE['token'])){
     <?php 
   };
     require_once("bd.php");
+    require_once("src/Classes/Models/Sum.php");
+    $sum = new \App\Models\Sum();
   ?>
       <li class="breadcrumb-item"><span class="breadcrumb-link current-page">Кабинет покупателя</span></li>
         </ul>
@@ -191,25 +193,21 @@ if(!isset($_COOKIE['token'])){
               $out .= '('.$value['price1'].' руб. - '.$value['quantity1'].' шт.); ';
               $pr = $value['price1'];
               $count = $value['quantity1'];
-              $all = $pr * $count;
-               $price += $all;
+              $price = $sum->add($price, $pr, $count);
             }
             if(isset($value['price2']) && !isset($value['price1'])){
               $out .= '('.$value['price2'].' руб. - '.$value['quantity2'].' шт.); ';
                $pr = $value['price2'];
               $count = $value['quantity2'];
-              $all = $pr * $count;
-               $price += $all;
+              $price = $sum->add($price, $pr, $count);
             }
             if(isset($value['price1']) && isset($value['price2'])){
               $pr1 = $value['price1'];
               $count1 = $value['quantity1'];
-              $all1 = $pr1 * $count1;
+              $price = $sum->add($price, $pr1, $count1);
               $pr2 = $value['price2'];
               $count2 = $value['quantity2'];
-              $all2 = $pr2 * $count2;
-              $all = $all1 + $all2;
-              $price += $all;
+              $price = $sum->add($price, $pr2, $count2);
               $out .= '('.$value['price1'].' руб. - '.$value['quantity1'].' шт.; '.$value['price2'].' руб. - '.$value['quantity2'].' шт.); ';
             }
           }
