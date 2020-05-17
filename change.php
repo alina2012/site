@@ -177,35 +177,78 @@ if(!isset($_COOKIE['token'])){
         <?php
         $res = mysqli_query($db, "SELECT * FROM order_table");
           while($data1 = mysqli_fetch_array($res)){
+        /**
+    	* @var $comp
+    	* Order composition from the database
+    	*/
           $comp = $data1['composition'];
           $my_new_array = json_decode($comp, true);
           $out='';
+        /**
+    	* @var $price
+    	* Order cost
+    	*/
           $price = 0;
           echo '<div class="cart-list cell-xl-12"><div class="cart-header row"><div class="cart-head item-image cell-xs-12 cell-md-4 cell-lg-2 cell-xl-2">'.$data1['order_id'].'</div>';
           foreach($my_new_array as $key => $value) { 
             $res1 = mysqli_query($db, "SELECT * FROM descript WHERE data_id='$key'");
             $data2 = mysqli_fetch_array($res1);
+    		/** @var $name
+		    * Name of product
+		    */
             $name = $data2['description'];
             $out .= $name;
             $out .= '. ';
             
             if(isset($value['price1']) && !isset($value['price2'])){
               $out .= '('.$value['price1'].' руб. - '.$value['quantity1'].' шт.); ';
+            /**
+			* @var $pr
+		    * Cost of product
+		    */
               $pr = $value['price1'];
+            /**
+		    * @var $count
+		    * Count of product
+			*/
               $count = $value['quantity1'];
               $price = $sum->add($price, $pr, $count);
             }
             if(isset($value['price2']) && !isset($value['price1'])){
               $out .= '('.$value['price2'].' руб. - '.$value['quantity2'].' шт.); ';
-               $pr = $value['price2'];
+            /**
+			* @var $pr
+		    * Cost of product
+		    */  
+              $pr = $value['price2'];
+            /**
+			  * @var $count
+			  * Count of product
+		    */
               $count = $value['quantity2'];
               $price = $sum->add($price, $pr, $count);
             }
             if(isset($value['price1']) && isset($value['price2'])){
+            /**
+			* @var $pr1
+		    * Cost of product
+		    */  
               $pr1 = $value['price1'];
+             /**
+			    * @var $count1
+			    * Count of product
+			 */
               $count1 = $value['quantity1'];
               $price = $sum->add($price, $pr1, $count1);
+            /**
+			* @var $pr2
+		    * Cost of product
+		    */  
               $pr2 = $value['price2'];
+             /**
+			   * @var $count2
+			   * Count of product
+			 */
               $count2 = $value['quantity2'];
               $price = $sum->add($price, $pr2, $count2);
               $out .= '('.$value['price1'].' руб. - '.$value['quantity1'].' шт.; '.$value['price2'].' руб. - '.$value['quantity2'].' шт.); ';

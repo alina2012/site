@@ -203,7 +203,7 @@ if(!(isset($_COOKIE['token']))){
         <?php
         $res = mysqli_query($db, "SELECT * FROM order_table WHERE email='$email'");
           while($data1 = mysqli_fetch_array($res)){
-      	/**
+      /**
     	* @var $comp
     	* Order composition from the database
     	*/
@@ -228,12 +228,12 @@ if(!(isset($_COOKIE['token']))){
             $out .= '. ';
             
              if(isset($value['price1']) && !isset($value['price2'])){
-             	/**
+          /**
 			    * @var $pr
 			    * Cost of product
 			    */
               $pr = $value['price1'];
-              /**
+          /**
 			    * @var $count
 			    * Count of product
 			    */
@@ -241,12 +241,12 @@ if(!(isset($_COOKIE['token']))){
               $price = $sum->add($price, $pr, $count);
             }
             if(isset($value['price2']) && !isset($value['price1'])){
-               /**
+          /**
 			    * @var $pr
 			    * Cost of product
 			    */
                $pr = $value['price2'];
-               /**
+          /**
 			    * @var $count
 			    * Count of product
 			    */
@@ -254,23 +254,23 @@ if(!(isset($_COOKIE['token']))){
               $price = $sum->add($price, $pr, $count);
             }
             if(isset($value['price1']) && isset($value['price2'])){
-              /**
+          /**
 			    * @var $pr1
 			    * Cost of product
 			    */
               $pr1 = $value['price1'];
-              /**
+          /**
 			    * @var $count1
 			    * Count of product
 			    */
               $count1 = $value['quantity1'];
               $price = $sum->add($price, $pr1, $count1);
-              /**
-			    * @var $pr
+          /**
+			    * @var $pr2
 			    * Cost of product
 			    */
               $pr2 = $value['price2'];
-              /**
+          /**
 			    * @var $count2
 			    * Count of product
 			    */
@@ -283,7 +283,7 @@ if(!(isset($_COOKIE['token']))){
           echo '<div class="cart-head item-total js-item-total-price cell-xs-12 cell-md-4 cell-xl-2">'.$price.'</div>';
           $status = $data1['status'];
            $res3 = mysqli_query($db, "SELECT * FROM status_description WHERE num='$status'");
-           /**
+      /**
 			* @var $data3
 			* Status description
 			*/
