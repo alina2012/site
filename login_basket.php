@@ -66,7 +66,7 @@
     	*/
     	$token = bin2hex(random_bytes(32));
     	setcookie("token", $token);
-    	$record = mysqli_query($db, "UPDATE users SET token='$token' WHERE id='$id'");
+    	$record = $database->updateRecord($db, "users", "token", $token, "id", $id);
     	if ($record == TRUE){
     			header("Location: new-order.php"); 
     			exit();

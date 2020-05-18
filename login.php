@@ -68,7 +68,7 @@
     		setcookie("admin", $admin);
     	}
     	setcookie("token", $token);
-    	$record = mysqli_query($db, "UPDATE users SET token='$token' WHERE id='$id'");
+    	$record = $database->updateRecord($db, "users", "token", $token, "id", $id);
     	if ($record == TRUE){
     			header("Location: account.php"); 
     			exit();

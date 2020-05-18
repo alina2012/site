@@ -46,8 +46,8 @@
 					message_to_telegram($text, $chat_id, $db);
 				}
 				if(!empty($data['id'])){
-						$record = mysqli_query($db, "UPDATE bot_mes SET update_id='$update_id' WHERE chat_id='$chat_id'");
-						$record2 = mysqli_query($db, "UPDATE bot_mes SET text_mes='$text' WHERE chat_id='$chat_id'");
+						$record = $database->updateRecord($db, "bot_mes", "update_id", $update_id, "chat_id", $chat_id);
+						$record2 = $database->updateRecord($db, "bot_mes", "text_mes", $text, "chat_id", $chat_id);
 						message_to_telegram($text, $chat_id, $db);
 				}
 	            
