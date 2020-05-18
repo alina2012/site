@@ -27,17 +27,17 @@
       <header class="main-header container">
         <div class="row middle-xl">
           <div class="logotype cell-xl-4 text-center-xl cell-sm-12">
-            <a title="CoffeeTime" href="\" class="logotype-link">
+            <a title="CoffeeTime" href="./" class="logotype-link">
               <span class="logotype-text">CoffeeTime</span>
               <small class="logotype-subtitle">...adventure awaits, but first coffee...</small> 
             </a>
           </div>
       <div class="user-toolbar cell-xl-4 text-right-xl hidden-sm">
-        <a title="Личный кабинет" class="compare-button button button-circle is-gray" href="\account.php">
+        <a title="Личный кабинет" class="compare-button button button-circle is-gray" href="./account.php">
           <i class="icon compare-icon ion-person"></i>
         </a>
       <div class="shopcart-widget">
-        <a title="Корзина" href="\basket.php" class="shopcart-link button button-circle is-primary">
+        <a title="Корзина" href="./basket.php" class="shopcart-link button button-circle is-primary">
           <i class="icon shopcart-icon ion-ios-cart-outline"></i>
           <span class="shopcart-count js-shopcart-amount"></span>
         </a>
@@ -48,17 +48,17 @@
   <div class="collection-menu-horizontal-wrapper container">
     <ul class="collection-menu-horizontal list js-edge-calc text-center-xl">
       <li class="list-item menu-item text-left-xl " data-handle="drink">
-            <a title="Напитки" href="\#drink" class="menu-link">
+            <a title="Напитки" href=".\#drink" class="menu-link">
               <span class="link-text">Напитки</span> 
             </a>
       </li> 
       <li class="list-item menu-item text-left-xl " data-handle="eat">
-        <a title="Десерты" href="\#eat" class="menu-link">
+        <a title="Десерты" href=".\#eat" class="menu-link">
           <span class="link-text">Десерты</span>    
         </a>
       </li>
       <li class="list-item menu-item text-left-xl " data-handle="addres">
-        <a title="Контакты" href="\addres.php" class="menu-link">
+        <a title="Контакты" href=".\addres.php" class="menu-link">
           <span class="link-text">Контакты</span>   
         </a>
       </li>
@@ -67,7 +67,7 @@
   <div class="breadcrumb-wrapper container">
     <ul class="breadcrumb">
       <li class="breadcrumb-item home">
-        <a class="breadcrumb-link" title='Главная' href="\">Главная</a>
+        <a class="breadcrumb-link" title='Главная' href=".\">Главная</a>
       </li>
       <?php 
 if(!isset($_COOKIE['token'])){
@@ -81,7 +81,7 @@ if(!isset($_COOKIE['token'])){
         <div id="flash_messages"></div>
         <div id='top_info'></div>
         <div class="set wide_set">
-          <form action="\login.php" accept-charset="UTF-8" method="post">
+          <form action=".\login.php" accept-charset="UTF-8" method="post">
             <input name="utf8" type="hidden" value="&#x2713;"/>
             <div class='set-block small_label'>
               <div class='field fc'>
@@ -105,12 +105,12 @@ if(!isset($_COOKIE['token'])){
             </div>
             <div class='field fc'>
               <div class='field-content'>
-              <a href="\forgot.php">Восстановить пароль</a>
+              <a href=".\forgot.php">Восстановить пароль</a>
               </div>
             </div>
             <div class='field fc'>
               <div class='field-content'>
-              <a href="\signup.php">Зарегистрироваться</a>
+              <a href=".\signup.php">Зарегистрироваться</a>
               </div>
             </div>
             </div>
@@ -129,19 +129,19 @@ if(!isset($_COOKIE['token'])){
             <div class='wrapper body fc'>
                 <div class='userbar fc'>
                   <div class='links fl'>
-                    <a href='/'>
+                    <a href='./'>
                       <span class='b'>Вернуться в магазин</span>
-                    </a>|<a href='\client.php'>
+                    </a>|<a href='.\client.php'>
                       <span>Контактные данные</span>
-                    </a>|<a href='\account.php'>
+                    </a>|<a href='.\account.php'>
                       <span class='b'>Заказы</span>
-                    </a>|<a href='\change.php'>
+                    </a>|<a href='.\change.php'>
                       <span class='b'>Заказы покупателей</span>
                     </a>
                   </div>
                   <div class='profile fr'>
                     <b></b>
-                    (<a href='\logout.php'>Выход</a>)
+                    (<a href='.\logout.php'>Выход</a>)
                   </div>
                 </div>
               <div class='page-title'>Кабинет покупателя.</div>
@@ -240,7 +240,7 @@ if(!isset($_COOKIE['token'])){
 </div>
   <div class="footer">
     <center>
-    (<a href='\admin.php'>Панель управления</a>)
+    (<a href='.\admin.php'>Панель управления</a>)
   </center>
   </div>
 </html>
