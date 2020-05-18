@@ -4,6 +4,8 @@
     * User registration
     */
 	require_once("bd.php");
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	if(isset($_POST['client'])){
 	/**
     * @var $name
@@ -81,7 +83,7 @@
 	$login = htmlspecialchars($login);
 	$password = strip_tags(trim($password));
 	$password = htmlspecialchars($password);
-	$result = mysqli_query($db, "SELECT id FROM users WHERE login='$login'");
+	$result = $database->getRecord($db, "users", "login", $login, "id");
 	if($result){
 		$data = mysqli_fetch_array($result);
 		if(($data['id'])){
@@ -112,9 +114,7 @@
     */
 	$token = bin2hex(random_bytes(32));
     setcookie("token", $token);
-    
-	$record = mysqli_query($db, "INSERT INTO users (name, login, salt, password, token, phone) VALUES ('$name','$login', '$salt', '$password', '$token', '$phone')");
-
+    $record = $database->insertRecordintoUsers($db, $name, $login, $salt, $password, $token, $phone);
 	if ($record =='TRUE')
    		{
 	    	header('Location: account.php');

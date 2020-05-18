@@ -71,32 +71,32 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a7691c0162d89de0b6ba47edcd8ba8878"><td class="memItemLeft" align="right" valign="top"><a id="a7691c0162d89de0b6ba47edcd8ba8878"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$database</b> = new \<a class="el" href="classApp_1_1Models_1_1DB.html">App\Models\DB</a>()</td></tr>
+<tr class="separator:a7691c0162d89de0b6ba47edcd8ba8878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc31993e855f9631572adfedcfe6f34b"><td class="memItemLeft" align="right" valign="top"><a id="afc31993e855f9631572adfedcfe6f34b"></a>
 if(isset($_POST['email'])) if(isset($_POST['password'])) if(empty($login)||empty($password))&#160;</td><td class="memItemRight" valign="bottom"><b>$login</b> = strip_tags(trim($login))</td></tr>
 <tr class="separator:afc31993e855f9631572adfedcfe6f34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a607686ef9f99ea7c42f4f3dd3dbb2b0d"><td class="memItemLeft" align="right" valign="top"><a id="a607686ef9f99ea7c42f4f3dd3dbb2b0d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>$password</b> = strip_tags(trim($password))</td></tr>
 <tr class="separator:a607686ef9f99ea7c42f4f3dd3dbb2b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a112ef069ddc0454086e3d1e6d8d55d07"><td class="memItemLeft" align="right" valign="top"><a id="a112ef069ddc0454086e3d1e6d8d55d07"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$result</b> = mysqli_query($db, &quot;SELECT * FROM users WHERE login='$login'&quot;)</td></tr>
-<tr class="separator:a112ef069ddc0454086e3d1e6d8d55d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6efc15b5a2314dd4b5aaa556a375c6d6"><td class="memItemLeft" align="right" valign="top"><a id="a6efc15b5a2314dd4b5aaa556a375c6d6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$data</b> = mysqli_fetch_array($result)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$data</b> = $database-&gt;getRecord($db, &quot;users&quot;, &quot;login&quot;, $login)</td></tr>
 <tr class="separator:a6efc15b5a2314dd4b5aaa556a375c6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc2b8ca53f188a5aa462f12cd5e0a48a"><td class="memItemLeft" align="right" valign="top">if(empty($data['password'])) if($data['password']==hash('sha256',($_POST['password'] . $data['salt'])))&#160;</td><td class="memItemRight" valign="bottom"><b>else</b></td></tr>
-<tr class="separator:adc2b8ca53f188a5aa462f12cd5e0a48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155f1e0a1a85694b8ab760d7f1d84f4d"><td class="memItemLeft" align="right" valign="top">if($data=NULL) if($data['password']==hash('sha256',($_POST['password'] . $data['salt'])))&#160;</td><td class="memItemRight" valign="bottom"><b>else</b></td></tr>
+<tr class="separator:a155f1e0a1a85694b8ab760d7f1d84f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Authorization when placing an order in the basket </p>
 </div><h2 class="groupheader">Variable Documentation</h2>
-<a id="adc2b8ca53f188a5aa462f12cd5e0a48a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc2b8ca53f188a5aa462f12cd5e0a48a">&#9670;&nbsp;</a></span>else</h2>
+<a id="a155f1e0a1a85694b8ab760d7f1d84f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155f1e0a1a85694b8ab760d7f1d84f4d">&#9670;&nbsp;</a></span>else</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">if (empty( $data[ 'password'])) if ( $data[ 'password']==hash( 'sha256',( $_POST[ 'password'] . $data[ 'salt']))) else</td>
+          <td class="memname">if ( $data=NULL) if ( $data[ 'password']==hash( 'sha256',( $_POST[ 'password'] . $data[ 'salt']))) else</td>
         </tr>
       </table>
 </div><div class="memdoc">

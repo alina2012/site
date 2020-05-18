@@ -4,6 +4,8 @@
     	* User authorization
     	*/
 	include('bd.php');
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	if(isset($_POST['email'])){
 		$login = $_POST['email'];
 		if($login == ''){
@@ -37,12 +39,11 @@
 	 * Password entered
 	 */
 	$password = htmlspecialchars($password);
-	$result = mysqli_query($db, "SELECT * FROM users WHERE login='$login'");  
 	/**
 	* @var $data User data from database
-	*/  
-	$data = mysqli_fetch_array($result);
-	if(empty($data['password'])){
+	*/ 
+	$data = $database->getRecord($db, "users", "login", $login); 
+	if(empty($data)){
 		include('account.php');
 	?>
 	<script type="text/javascript">
@@ -67,7 +68,7 @@
     		setcookie("admin", $admin);
     	}
     	setcookie("token", $token);
-    	$record = mysqli_query($db, "UPDATE users SET token='$token' WHERE id='$id'");
+    	$record = $database->updateRecord($db, "users", "token", $token, "id", $id);
     	if ($record == TRUE){
     			header("Location: account.php"); 
     			exit();

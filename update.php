@@ -4,6 +4,8 @@
 	 * Change contact details
 	 */
 	require_once("bd.php");
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	/**
 	 * @var $name
 	 * Name entered
@@ -39,24 +41,23 @@
 	 * Authorization token
 	 */
 	$token = $_COOKIE['token'];
-	$result = mysqli_query($db, "SELECT * FROM users WHERE token='$token'");
 	/**
 	* @var $data User data from database
 	*/  
-	$data = mysqli_fetch_array($result);
+	$data = $database->getRecord($db, "users", "token", $token);
 		$salt = $data['salt'];
 		$pass = hash('sha256',($old_pas . $salt));
 		if($pass == $data['password']){
 			if($new_pas == $pas_con){
 				$password = hash('sha256',($new_pas . $salt));
 				$password = mysqli_real_escape_string ( $db , $password);
-				$record1 = mysqli_query($db, "UPDATE users SET password='$password' WHERE token='$token'");
-				$record2 = mysqli_query($db, "UPDATE users SET name='$name' WHERE token='$token'");
-				$record3 = mysqli_query($db, "UPDATE users SET login='$email' WHERE token='$token'");
-				$record4 = mysqli_query($db, "UPDATE users SET phone='$phone' WHERE token='$token'");
+				$record1 = $database->updateRecord($db, "users", "password", $password, "token", $token);
+				$record2 = $database->updateRecord($db, "users", "name", $name, "token", $token);
+				$record3 = $database->updateRecord($db, "users", "login", $email, "token", $token);
+				$record4 = $database->updateRecord($db, "users", "phone", $phone, "token", $token);
 			}
 		} else {
-				$record1 = mysqli_query($db, "UPDATE users SET name='$name' WHERE token='$token'");
-				$record2 = mysqli_query($db, "UPDATE users SET login='$email' WHERE token='$token'");
-				$record3 = mysqli_query($db, "UPDATE users SET phone='$phone' WHERE token='$token'");
+				$record1 = $database->updateRecord($db, "users", "name", $name, "token", $token);
+				$record2 = $database->updateRecord($db, "users", "login", $email, "token", $token);
+				$record3 = $database->updateRecord($db, "users", "phone", $phone, "token", $token);
 		}

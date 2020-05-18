@@ -4,6 +4,8 @@
 	* Update password
 	*/  
 	require_once("bd.php");
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	/**
 	 * @var $email
 	 * Email entered
@@ -20,8 +22,7 @@
 	 */
 	$conf_pass = $_POST['conf_pass'];
 	if($pass == $conf_pass){
-		$result = mysqli_query($db, "SELECT * FROM users WHERE login='$email'");
-		$data = mysqli_fetch_array($result);
+		$data = $database->getRecord($db, "users", "login", $email);
 		if(empty($data['id'])){
 			setcookie("key", "", time() - 3600);
 			setcookie("email", "", time() - 3600);
@@ -45,7 +46,7 @@
 	 */
 		$password = hash('sha256',($pass . $salt));
 		$password = mysqli_real_escape_string ( $db , $password);
-		$record = mysqli_query($db, "UPDATE users SET password='$password' WHERE login='$email'");
+		$record = $database->updateRecord($db, "users", "password", $password, "login", $email);
     	if ($record == TRUE){
     			setcookie("key", "", time() - 3600);
     			setcookie("email", "", time() - 3600);

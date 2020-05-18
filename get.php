@@ -4,15 +4,16 @@
 	* Getting user data
 	*/
 	require_once("bd.php");
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	/**
 	* @var $token
 	* Unique user token
 	*/
 	$token = $_COOKIE['token'];
-	$result = mysqli_query($db, "SELECT * FROM users WHERE token='$token'");
 	/**
 	* @var $data
 	* Array with user data
 	*/
-	$data = mysqli_fetch_array($result);
+	$data = $database->getRecord($db, "users", "token", $token);
 	echo json_encode($data);

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['message_5fto_5ftelegram_72',['message_to_telegram',['../bot_8php.html#a7730958e7ab7a806f117ecc688520744',1,'bot.php']]]
+  ['getrecord_103',['getRecord',['../classApp_1_1Models_1_1DB.html#af88bb3d51862c1b2de828938c858204e',1,'App::Models::DB']]]
 ];

@@ -4,16 +4,17 @@
     	* Checkout
     	*/
 	require_once("bd.php");
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	/**
     * @var $token
     * Authorization Token
     */
 	$token = $_COOKIE['token'];
-	$result = mysqli_query($db, "SELECT * FROM users WHERE token='$token'");
 	/**
 	* @var $data User data from database
 	*/  
-	$data = mysqli_fetch_array($result);
+	$data = $database->getRecord($db, "users", "token", $token);
 	/**
 	* @var $email User email
 	*/  
@@ -52,7 +53,7 @@
 	$order_id = rand();
 	$my_json = mysqli_real_escape_string ( $db , $my_json);
 	$order_id = mysqli_real_escape_string ( $db , $order_id);
-	$record = mysqli_query($db, "INSERT INTO order_table (order_id, email, composition, status) VALUES ('$order_id','$email', '$my_json', 1)");
+	$record = $database->insertRecordintoOrder_table($db, $order_id, $email, $my_json);
 	if ($record =='TRUE')
    		{
 	    	header('Location: account.php');

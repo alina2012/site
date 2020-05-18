@@ -5,6 +5,8 @@
 	 * Bot Submission Page
 	 */
 	require_once("bd.php");
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	/**
 	 * Telegram token
 	 */
@@ -35,18 +37,17 @@
 	        	$chat_id = $update['message']['chat']['id'];
 	            $text = $update['message']['text'];   //текст сообщения
 	            $update_id = $update['update_id'];  //номер события
-	            $result = mysqli_query($db, "SELECT id FROM bot_mes WHERE chat_id='$chat_id'");
-				$data = mysqli_fetch_array($result);
+	            $data = $database->getRecord($db, "bot_mes", "chat_id", $chat_id, "id");
 				$chat_id = mysqli_real_escape_string ( $db , $chat_id);
 				$update_id = mysqli_real_escape_string ( $db , $update_id);
 				$text = mysqli_real_escape_string ( $db , $text);
 				if(empty($data['id'])){
-					$record = mysqli_query($db, "INSERT INTO bot_mes (chat_id, update_id, text_mes) VALUES ('$chat_id','$update_id', '$text')");
+					$record = $database->insertRecordintoBot_mes($db, $chat_id, $update_id, $text);
 					message_to_telegram($text, $chat_id, $db);
 				}
 				if(!empty($data['id'])){
-						$record = mysqli_query($db, "UPDATE bot_mes SET update_id='$update_id' WHERE chat_id='$chat_id'");
-						$record2 = mysqli_query($db, "UPDATE bot_mes SET text_mes='$text' WHERE chat_id='$chat_id'");
+						$record = $database->updateRecord($db, "bot_mes", "update_id", $update_id, "chat_id", $chat_id);
+						$record2 = $database->updateRecord($db, "bot_mes", "text_mes", $text, "chat_id", $chat_id);
 						message_to_telegram($text, $chat_id, $db);
 				}
 	            
@@ -94,13 +95,11 @@ function message_to_telegram($text, $chat_id, $db){
     if($text == 'help' || $text == '/help' || $text == 'Help'){
     	$text1 = 'Чтобы узнать статус заказа, пожалуйста, введите номер заказа';
     }
-    $result = mysqli_query($db, "SELECT * FROM order_table WHERE order_id='$text'");
     /**  Order data from the database */
-	$data = mysqli_fetch_array($result);
+    $data = $database->getRecord($db, "order_table", "order_id", $text);
 	if(!empty($data['id'])){
 		$status = $data['status'];
-    		$result1 = mysqli_query($db, "SELECT * FROM status_description WHERE num='$status'");
-            $data1 = mysqli_fetch_array($result1);
+            $data1 = $database->getRecord($db, "status_description", "num", $status);
             if($data1['id']){
                 $text1 = $data1['description'];
             } 

@@ -81,18 +81,19 @@
 </div>
 <?php 
   require_once("bd.php");
+  require_once("src/Classes/Models/DB.php");
+  $database = new \App\Models\DB();
   if(isset($_COOKIE['token'])){
     /**
     * @var $token
     * Authorization token
     */
   $token = $_COOKIE['token'];
-    $result = mysqli_query($db, "SELECT * FROM users WHERE token='$token'");
     /**
     * @var $data
     * User data from database
     */
-    $data = mysqli_fetch_array($result);
+    $data = $database->getRecord($db, "users", "token", $token);
     /**
     * @var $name
     * User name
