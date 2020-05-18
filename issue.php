@@ -53,7 +53,7 @@
 	$order_id = rand();
 	$my_json = mysqli_real_escape_string ( $db , $my_json);
 	$order_id = mysqli_real_escape_string ( $db , $order_id);
-	$record = mysqli_query($db, "INSERT INTO order_table (order_id, email, composition, status) VALUES ('$order_id','$email', '$my_json', 1)");
+	$record = $database->insertRecordintoOrder_table($db, $order_id, $email, $my_json);
 	if ($record =='TRUE')
    		{
 	    	header('Location: account.php');
