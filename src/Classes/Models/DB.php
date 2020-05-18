@@ -104,4 +104,18 @@ class DB
         return FALSE;
       }
     }
+    public function updateRecord($db, $table_name, $column, $column_value, $key_name, $key)
+    { 
+      $numargs = func_num_args();
+      if($numargs > 6){
+        return FALSE;
+      }
+      $text1 = "UPDATE ";
+      $text2 = " SET ";
+      $text3 = " ='$column_value' WHERE ";
+      $text4 = " ='$key'";
+      $text = $text1.$table_name.$text2.$column.$text3.$key_name.$text4;
+      $record = mysqli_query($db, $text);
+        return $record;
+    }
 }
