@@ -71,14 +71,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a7691c0162d89de0b6ba47edcd8ba8878"><td class="memItemLeft" align="right" valign="top"><a id="a7691c0162d89de0b6ba47edcd8ba8878"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$database</b> = new \<a class="el" href="classApp_1_1Models_1_1DB.html">App\Models\DB</a>()</td></tr>
+<tr class="separator:a7691c0162d89de0b6ba47edcd8ba8878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00ae4fcafb1145f5e968bdf920f83e2e"><td class="memItemLeft" align="right" valign="top"><a id="a00ae4fcafb1145f5e968bdf920f83e2e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>$token</b> = $_COOKIE['token']</td></tr>
 <tr class="separator:a00ae4fcafb1145f5e968bdf920f83e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a112ef069ddc0454086e3d1e6d8d55d07"><td class="memItemLeft" align="right" valign="top"><a id="a112ef069ddc0454086e3d1e6d8d55d07"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$result</b> = mysqli_query($db, &quot;SELECT * FROM users WHERE token='$token'&quot;)</td></tr>
-<tr class="separator:a112ef069ddc0454086e3d1e6d8d55d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6efc15b5a2314dd4b5aaa556a375c6d6"><td class="memItemLeft" align="right" valign="top"><a id="a6efc15b5a2314dd4b5aaa556a375c6d6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$data</b> = mysqli_fetch_array($result)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$data</b> = $database-&gt;getRecord($db, &quot;users&quot;, &quot;token&quot;, $token)</td></tr>
 <tr class="separator:a6efc15b5a2314dd4b5aaa556a375c6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad634f418b20382e2802f80532d76d3cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="issue_8php.html#ad634f418b20382e2802f80532d76d3cd">$email</a> = $data['login']</td></tr>
 <tr class="separator:ad634f418b20382e2802f80532d76d3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,7 +100,7 @@ for($i=0; $i&lt; $count; $i++)&#160;</td><td class="memItemRight" valign="bottom
 <tr class="memitem:a348633d693e5ed9dd5a84f96bc3f78c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="issue_8php.html#a348633d693e5ed9dd5a84f96bc3f78c0">$order_id</a> = rand()</td></tr>
 <tr class="separator:a348633d693e5ed9dd5a84f96bc3f78c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbcb6dcb11c8755d5ffab0b45aac7a22"><td class="memItemLeft" align="right" valign="top"><a id="acbcb6dcb11c8755d5ffab0b45aac7a22"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$record</b> = mysqli_query($db, &quot;INSERT INTO order_table (order_id, email, composition, status) VALUES ('$order_id','$email', '$my_json', 1)&quot;)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$record</b> = $database-&gt;insertRecordintoOrder_table($db, $order_id, $email, $my_json)</td></tr>
 <tr class="separator:acbcb6dcb11c8755d5ffab0b45aac7a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecde5827e5d7ea927d78b024b49d279b"><td class="memItemLeft" align="right" valign="top">if($record=='TRUE')&#160;</td><td class="memItemRight" valign="bottom"><b>else</b></td></tr>
 <tr class="separator:aecde5827e5d7ea927d78b024b49d279b"><td class="memSeparator" colspan="2">&#160;</td></tr>

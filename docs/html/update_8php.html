@@ -71,6 +71,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a7691c0162d89de0b6ba47edcd8ba8878"><td class="memItemLeft" align="right" valign="top"><a id="a7691c0162d89de0b6ba47edcd8ba8878"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$database</b> = new \<a class="el" href="classApp_1_1Models_1_1DB.html">App\Models\DB</a>()</td></tr>
+<tr class="separator:a7691c0162d89de0b6ba47edcd8ba8878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2fc40d43824ea3e1ce5d86dee0d763b"><td class="memItemLeft" align="right" valign="top"><a id="ab2fc40d43824ea3e1ce5d86dee0d763b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>$name</b> = $_REQUEST['name']</td></tr>
 <tr class="separator:ab2fc40d43824ea3e1ce5d86dee0d763b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -89,11 +92,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a00ae4fcafb1145f5e968bdf920f83e2e"><td class="memItemLeft" align="right" valign="top"><a id="a00ae4fcafb1145f5e968bdf920f83e2e"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>$token</b> = $_COOKIE['token']</td></tr>
 <tr class="separator:a00ae4fcafb1145f5e968bdf920f83e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a112ef069ddc0454086e3d1e6d8d55d07"><td class="memItemLeft" align="right" valign="top"><a id="a112ef069ddc0454086e3d1e6d8d55d07"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$result</b> = mysqli_query($db, &quot;SELECT * FROM users WHERE token='$token'&quot;)</td></tr>
-<tr class="separator:a112ef069ddc0454086e3d1e6d8d55d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6efc15b5a2314dd4b5aaa556a375c6d6"><td class="memItemLeft" align="right" valign="top"><a id="a6efc15b5a2314dd4b5aaa556a375c6d6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$data</b> = mysqli_fetch_array($result)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$data</b> = $database-&gt;getRecord($db, &quot;users&quot;, &quot;token&quot;, $token)</td></tr>
 <tr class="separator:a6efc15b5a2314dd4b5aaa556a375c6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc4dc6ee2d56ad844a1ccd6be7cd5af5"><td class="memItemLeft" align="right" valign="top"><a id="adc4dc6ee2d56ad844a1ccd6be7cd5af5"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>$salt</b> = $data['salt']</td></tr>
@@ -103,10 +103,10 @@ Variables</h2></td></tr>
 <tr class="memitem:aa29a77a8d62139ded870719f3454785c"><td class="memItemLeft" align="right" valign="top">if($pass==$data['password'])&#160;</td><td class="memItemRight" valign="bottom"><b>else</b></td></tr>
 <tr class="separator:aa29a77a8d62139ded870719f3454785c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91c42bdc2c851214b15a8b214f8ce2bc"><td class="memItemLeft" align="right" valign="top"><a id="a91c42bdc2c851214b15a8b214f8ce2bc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$record2</b> = mysqli_query($db, &quot;UPDATE users SET login='$email' WHERE token='$token'&quot;)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$record2</b> = $database-&gt;updateRecord($db, &quot;users&quot;, &quot;login&quot;, $email, &quot;token&quot;, $token)</td></tr>
 <tr class="separator:a91c42bdc2c851214b15a8b214f8ce2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab91a92615b1a844ebafbabb14e9347f8"><td class="memItemLeft" align="right" valign="top"><a id="ab91a92615b1a844ebafbabb14e9347f8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$record3</b> = mysqli_query($db, &quot;UPDATE users SET phone='$phone' WHERE token='$token'&quot;)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$record3</b> = $database-&gt;updateRecord($db, &quot;users&quot;, &quot;phone&quot;, $phone, &quot;token&quot;, $token)</td></tr>
 <tr class="separator:ab91a92615b1a844ebafbabb14e9347f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -184,12 +184,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">                $record1 = mysqli_query(<a class="code" href="bd_8php.html#a1fa3127fc82f96b1436d871ef02be319">$db</a>, <span class="stringliteral">&quot;UPDATE users SET name=&#39;$name&#39; WHERE token=&#39;$token&#39;&quot;</span>)</div>
+<div class="line">                $record1 = $database-&gt;updateRecord(<a class="code" href="bd_8php.html#a1fa3127fc82f96b1436d871ef02be319">$db</a>, <span class="stringliteral">&quot;users&quot;</span>, <span class="stringliteral">&quot;name&quot;</span>, <a class="code" href="register_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a>, <span class="stringliteral">&quot;token&quot;</span>, <a class="code" href="get_8php.html#a00ae4fcafb1145f5e968bdf920f83e2e">$token</a>)</div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
+<div class="ttc" id="aregister_8php_html_ab2fc40d43824ea3e1ce5d86dee0d763b"><div class="ttname"><a href="register_8php.html#ab2fc40d43824ea3e1ce5d86dee0d763b">$name</a></div><div class="ttdeci">if(isset($_POST['client'])) if(isset($_POST['phone'])) if(isset($_POST['email'])) if(isset($_POST['password'])) if(isset($_POST['conf-password'])) if(empty($name)||empty($phone)||empty($login)||empty($password)||empty($confPass)) if($password !=$confPass) $name</div><div class="ttdef"><b>Definition:</b> register.php:78</div></div>
 <div class="ttc" id="abd_8php_html_a1fa3127fc82f96b1436d871ef02be319"><div class="ttname"><a href="bd_8php.html#a1fa3127fc82f96b1436d871ef02be319">$db</a></div><div class="ttdeci">$db</div><div class="ttdef"><b>Definition:</b> bd.php:26</div></div>
+<div class="ttc" id="aget_8php_html_a00ae4fcafb1145f5e968bdf920f83e2e"><div class="ttname"><a href="get_8php.html#a00ae4fcafb1145f5e968bdf920f83e2e">$token</a></div><div class="ttdeci">$token</div><div class="ttdef"><b>Definition:</b> get.php:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
