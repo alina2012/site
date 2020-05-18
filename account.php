@@ -123,23 +123,19 @@ if(!(isset($_COOKIE['token']))){
   if(isset($_COOKIE['token'])){
     require_once("bd.php");
     require_once("src/Classes/Models/Sum.php");
+    require_once("src/Classes/Models/DB.php");
     $sum = new \App\Models\Sum();
+    $database = new \App\Models\DB();
    	/**
     * @var $token
     * Authorization token
     */
     $token = $_COOKIE['token'];
-    $result = mysqli_query($db, "SELECT * FROM users WHERE token='$token'");
-   	/**
-    * @var $data
-    * User data from database
-    */
-    $data = mysqli_fetch_array($result);
-   	/**
+    /**
     * @var $email
     * User email
     */
-    $email = $data['login'];
+    $email = $database->getRecord($db, "users", "token", $token, "login");
   ?>
       <li class="breadcrumb-item"><span class="breadcrumb-link current-page">Кабинет покупателя</span></li>
         </ul>
@@ -155,7 +151,7 @@ if(!(isset($_COOKIE['token']))){
                     </a>|<a href='\account.php'>
                       <span class='b'>Заказы</span>
                     </a> <?php if(isset($_COOKIE['admin'])){
-                      echo "|<a href='\change.php'>
+                      echo "|<a href='./change.php'>
                       <span class='b'>Заказы покупателей</span>
                     </a>";
                     } ?>
@@ -173,9 +169,8 @@ if(!(isset($_COOKIE['token']))){
       <div class='set-title'>Вы можете следить за статусом заказа в личном кабинете или написать нашему telegram - боту (@Coffee_TimeBot)</div>
       <div class='set-block'>
         <?php 
-        $ress = mysqli_query($db, "SELECT * FROM order_table WHERE email='$email'");
-        
-        if(!($data7 = mysqli_fetch_array($ress))){
+        $data7 = $database->getRecord($db, "order_table", "email", $email, "composition");
+        if($data7 = NULL){
           ?>
           <p>Вы не сделали ещё ни одного заказа</p>
           <?php 
@@ -217,13 +212,11 @@ if(!(isset($_COOKIE['token']))){
           $price = 0;
           echo '<div class="cart-list cell-xl-12"><div class="cart-header row"><div class="cart-head item-image cell-xs-12 cell-md-4 cell-lg-2 cell-xl-2">'.$data1['order_id'].'</div>';
           foreach($my_new_array as $key => $value) { 
-            $res1 = mysqli_query($db, "SELECT * FROM descript WHERE data_id='$key'");
-            $data2 = mysqli_fetch_array($res1);
             /**
 		    * @var $name
 		    * Name of product
-		    */
-            $name = $data2['description'];
+		    */  
+            $name = $database->getRecord($db, "descript", "data_id", $key, "description");
             $out .= $name;
             $out .= '. ';
             
@@ -282,12 +275,11 @@ if(!(isset($_COOKIE['token']))){
           echo '<div class="cart-head item-counter cell-xs-12 cell-md-4 cell-lg-3 cell-xl-2"></div>';
           echo '<div class="cart-head item-total js-item-total-price cell-xs-12 cell-md-4 cell-xl-2">'.$price.'</div>';
           $status = $data1['status'];
-           $res3 = mysqli_query($db, "SELECT * FROM status_description WHERE num='$status'");
       /**
 			* @var $data3
 			* Status description
-			*/
-          $data3 = mysqli_fetch_array($res3);
+			*/  
+      $data3 = $database->getRecord($db, "status_description", "num", $status);
           echo '<div class="cart-head item-remove cell-xs-12 cell-md-4 cell-xl-1">'.$data3['description'].'</div>';
           echo '</div><br><hr></div>';
         };

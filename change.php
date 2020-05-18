@@ -122,6 +122,7 @@ if(!isset($_COOKIE['token'])){
   };
     require_once("bd.php");
     require_once("src/Classes/Models/Sum.php");
+    require_once("src/Classes/Models/DB.php");
     $sum = new \App\Models\Sum();
   ?>
       <li class="breadcrumb-item"><span class="breadcrumb-link current-page">Кабинет покупателя</span></li>
@@ -175,6 +176,7 @@ if(!isset($_COOKIE['token'])){
         <br>
         </div>
         <?php
+        $database = new \App\Models\DB();
         $res = mysqli_query($db, "SELECT * FROM order_table");
           while($data1 = mysqli_fetch_array($res)){
         /**
@@ -191,12 +193,10 @@ if(!isset($_COOKIE['token'])){
           $price = 0;
           echo '<div class="cart-list cell-xl-12"><div class="cart-header row"><div class="cart-head item-image cell-xs-12 cell-md-4 cell-lg-2 cell-xl-2">'.$data1['order_id'].'</div>';
           foreach($my_new_array as $key => $value) { 
-            $res1 = mysqli_query($db, "SELECT * FROM descript WHERE data_id='$key'");
-            $data2 = mysqli_fetch_array($res1);
-    		/** @var $name
+          /** @var $name
 		    * Name of product
 		    */
-            $name = $data2['description'];
+          	$name = $database->getRecord($db, "descript", "data_id", $key, "description");
             $out .= $name;
             $out .= '. ';
             
@@ -258,8 +258,7 @@ if(!isset($_COOKIE['token'])){
           echo '<div class="cart-head item-counter cell-xs-12 cell-md-4 cell-lg-3 cell-xl-2">'.$data1['email'].'</div>';
           echo '<div class="cart-head item-total js-item-total-price cell-xs-12 cell-md-4 cell-xl-2">'.$price.'</div>';
           $status = $data1['status'];
-          $res3 = mysqli_query($db, "SELECT * FROM status_description WHERE num='$status'");
-          $data3 = mysqli_fetch_array($res3);
+          $data3 = $database->getRecord($db, "status_description", "num", $status);
           echo '<div class="cart-head item-remove cell-xs-12 cell-md-4 cell-xl-1">'.$data3['description'].'</div>';
           echo '<div class="cart-head item-remove cell-xs-12 cell-md-4 cell-xl-2">
             <select class="change-status" name="'.$data1['order_id'].'" data-product-variants>

@@ -4,6 +4,8 @@
     * Sending Email
     */
 	require_once("bd.php");
+	require_once("src/Classes/Models/DB.php");
+    $database = new \App\Models\DB();
 	require 'lib/PHPMailer/PHPMailerAutoload.php';
 	/**
     * @var $email
@@ -11,12 +13,11 @@
     */
 	$email = $_POST['email'];
 	setcookie("email", $email);
-	$result = mysqli_query($db, "SELECT * FROM users WHERE login='$email'");
 	/**
     * @var $data
     * User data from database
     */
-	$data = mysqli_fetch_array($result);
+    $data = $database->getRecord($db, "users", "login", $email);
 	if(!$data['id']){
 		include('forgot.php');
 			?>
