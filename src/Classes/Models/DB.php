@@ -1,8 +1,25 @@
 <?php
+/**
+ * @file
+ * Page containing the class
+ */
 namespace App\Models;
 require_once("./bd.php");
+/**
+* Сlass for working with the database
+*/
 class DB
 {
+  /**
+  * Function for retrieving records from a database
+  * @param $db Db connection
+  * @param $table_name Table name
+  * @param $param Parametr
+  * @param $key Parametr value
+  * @param $what Desired value
+  *
+  * @return Record from database
+  */
     public function getRecord($db, $table_name, $param,$key, $what = NULL){ 
     	$numargs = func_num_args();
       if($numargs > 5){
