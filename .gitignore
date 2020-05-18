@@ -1,0 +1,4 @@
+# Ignore any file named foo.txt.
+composer.lock
+vendor/
+.phpunit.result.cache
