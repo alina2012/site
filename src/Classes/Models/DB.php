@@ -104,6 +104,16 @@ class DB
         return FALSE;
       }
     }
+  /**
+  * The function to change the record in the database
+  * @param $table_name Table name
+  * @param $column Column for new value
+  * @param $colum_value New value
+  * @param $key_name Definition Column
+  * @param $key Column value
+  *
+  * @return FALSE or TRUE
+  */
     public function updateRecord($db, $table_name, $column, $column_value, $key_name, $key)
     { 
       $numargs = func_num_args();
