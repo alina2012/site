@@ -6,15 +6,15 @@
     /**
     * Server Port
     */
-	define("DB_SERVER", "localhost:3308");
+	define("DB_SERVER", "localhost:3306");
 	/**
     * Login 
     */
-	define("DB_USER", "root");
+	define("DB_USER", "admin");
 	/**
     * Password
     */
-	define("DB_PASS", "");
+	define("DB_PASS", "pass");
 	/**
     * Database Name
     */

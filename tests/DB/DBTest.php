@@ -25,7 +25,7 @@ class DBTest extends \PHPUnit\Framework\TestCase
 * Test Script Function
 */
     public function testGetRecord(){
-        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        $db = mysqli_connect ("localhost:3306","admin","pass", "shop");
         mysqli_query($db, "SET NAMES utf8");
     /**
     * Function result
@@ -57,7 +57,7 @@ class DBTest extends \PHPUnit\Framework\TestCase
 * Test Script Function
 */
     public function testInsertRecordintoBot_mes(){
-        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        $db = mysqli_connect ("localhost:3306","admin","pass", "shop");
         mysqli_query($db, "SET NAMES utf8");
     /**
     * Function result
@@ -74,7 +74,7 @@ class DBTest extends \PHPUnit\Framework\TestCase
 * Test Script Function
 */
     public function testInsertRecordintoUsers(){
-        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        $db = mysqli_connect ("localhost:3306","admin","pass", "shop");
         mysqli_query($db, "SET NAMES utf8");
     /**
     * Function result
@@ -91,7 +91,7 @@ class DBTest extends \PHPUnit\Framework\TestCase
 * Test Script Function
 */
     public function testInsertRecordintoOrder_table(){
-        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        $db = mysqli_connect ("localhost:3306","admin","pass", "shop");
         mysqli_query($db, "SET NAMES utf8");
     /**
     * Function result
@@ -113,7 +113,7 @@ class DBTest extends \PHPUnit\Framework\TestCase
 * Test Script Function
 */
     public function testUpdateRecord(){
-        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        $db = mysqli_connect ("localhost:3306","admin","pass", "shop");
         mysqli_query($db, "SET NAMES utf8");
     /**
     * Function result
