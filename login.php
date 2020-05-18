@@ -43,7 +43,7 @@
 	* @var $data User data from database
 	*/ 
 	$data = $database->getRecord($db, "users", "login", $login); 
-	if($data = NULL){
+	if(empty($data)){
 		include('account.php');
 	?>
 	<script type="text/javascript">

@@ -81,11 +81,7 @@ if(!(isset($_COOKIE['token']))){
         <div id="flash_messages"></div>
         <div id='top_info'></div>
         <div class="set wide_set">
-<<<<<<< HEAD
           <form action="./login.php" accept-charset="UTF-8" method="post">
-=======
-          <form action=".\login.php" accept-charset="UTF-8" method="post">
->>>>>>> hotfix/hotfix_branch
             <input name="utf8" type="hidden" value="&#x2713;"/>
             <div class='set-block small_label'>
               <div class='field fc'>
@@ -155,12 +151,8 @@ if(!(isset($_COOKIE['token']))){
                     </a>|<a href='.\account.php'>
                       <span class='b'>Заказы</span>
                     </a> <?php if(isset($_COOKIE['admin'])){
-<<<<<<< HEAD
-                      echo "|<a href='./change.php'>
-=======
-                      echo "|<a href='.\change.php'>
->>>>>>> hotfix/hotfix_branch
-                      <span class='b'>Заказы покупателей</span>
+                      echo "|<a href='./change.php'>;
+                      <span class='b'>Заказы покупателей</span>;
                     </a>";
                     } ?>
                   </div>
