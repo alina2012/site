@@ -14,5 +14,5 @@
 	* New order status
 	*/
 	$status = $_REQUEST['status'];
-	$result = mysqli_query($db, "UPDATE order_table SET status='$status' WHERE order_id='$order_id'");
+	$result = $database->updateRecord($db, "order_table", "status", $status, "order_id", $order_id);
 	trigger_error(mysql_error($bd));

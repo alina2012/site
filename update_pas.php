@@ -46,7 +46,7 @@
 	 */
 		$password = hash('sha256',($pass . $salt));
 		$password = mysqli_real_escape_string ( $db , $password);
-		$record = mysqli_query($db, "UPDATE users SET password='$password' WHERE login='$email'");
+		$record = $database->updateRecord($db, "users", "password", $password, "login", $email);
     	if ($record == TRUE){
     			setcookie("key", "", time() - 3600);
     			setcookie("email", "", time() - 3600);
