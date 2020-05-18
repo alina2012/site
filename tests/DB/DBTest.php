@@ -109,4 +109,15 @@ class DBTest extends \PHPUnit\Framework\TestCase
         $result = $this->database->insertRecordintoOrder_table($db, "descript", "nam", 123, "id",1, 5, 9); 
         $this->assertEquals(FALSE, $result);
     }
+
+    public function testUpdateRecord(){
+        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        mysqli_query($db, "SET NAMES utf8");
+        $result = $this->database->updateRecord($db, "test", "name", 123, "id",1); 
+        $this->assertEquals(TRUE, $result);
+        $result = $this->database->updateRecord($db, "descript", "nam", 123, "id",1); 
+        $this->assertEquals(FALSE, $result);
+        $result = $this->database->updateRecord($db, "descript", "data_id", 123, "id", 1, 3); 
+        $this->assertEquals(FALSE, $result);
+    }
 }
