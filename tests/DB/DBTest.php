@@ -53,4 +53,60 @@ class DBTest extends \PHPUnit\Framework\TestCase
         $result = $this->database->getRecord($db, "descript", "phone", 4, "description"); 
         $this->assertEquals(NULL, $result);
     }
+/**
+* Test Script Function
+*/
+    public function testInsertRecordintoBot_mes(){
+        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        mysqli_query($db, "SET NAMES utf8");
+    /**
+    * Function result
+    */  
+        $result = $this->database->insertRecordintoBot_mes($db, 1, 1, 1); 
+        $this->assertEquals(TRUE, $result);
+    /**
+    * Function result
+    */  
+        $result = $this->database->insertRecordintoBot_mes($db, "descript", "nam", 123, "id",1); 
+        $this->assertEquals(FALSE, $result);
+    }
+/**
+* Test Script Function
+*/
+    public function testInsertRecordintoUsers(){
+        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        mysqli_query($db, "SET NAMES utf8");
+    /**
+    * Function result
+    */  
+        $result = $this->database->insertRecordintoUsers($db, 2, 3, 4, 5, "string", "phone"); 
+        $this->assertEquals(TRUE, $result);
+    /**
+    * Function result
+    */  
+        $result = $this->database->insertRecordintoUsers($db, "descript", "nam", 123, "id",1, 5, 9); 
+        $this->assertEquals(FALSE, $result);
+    }
+/**
+* Test Script Function
+*/
+    public function testInsertRecordintoOrder_table(){
+        $db = mysqli_connect ("localhost:3308","root","", "shop");
+        mysqli_query($db, "SET NAMES utf8");
+    /**
+    * Function result
+    */  
+        $result = $this->database->insertRecordintoOrder_table($db, 2, 3, "{}"); 
+        $this->assertEquals(TRUE, $result);
+    /**
+    * Function result
+    */  
+        $result = $this->database->insertRecordintoOrder_table($db, 2, 3, "string"); 
+        $this->assertEquals(FALSE, $result);
+    /**
+    * Function result
+    */  
+        $result = $this->database->insertRecordintoOrder_table($db, "descript", "nam", 123, "id",1, 5, 9); 
+        $this->assertEquals(FALSE, $result);
+    }
 }

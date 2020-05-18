@@ -42,7 +42,7 @@
 				$update_id = mysqli_real_escape_string ( $db , $update_id);
 				$text = mysqli_real_escape_string ( $db , $text);
 				if(empty($data['id'])){
-					$record = mysqli_query($db, "INSERT INTO bot_mes (chat_id, update_id, text_mes) VALUES ('$chat_id','$update_id', '$text')");
+					$record = $database->insertRecordintoBot_mes($db, $chat_id, $update_id, $text);
 					message_to_telegram($text, $chat_id, $db);
 				}
 				if(!empty($data['id'])){
