@@ -31,7 +31,7 @@ class DBTest extends \PHPUnit\Framework\TestCase
     * Function result
     */
         $result = $this->database->getRecord($db, "users", "id", 2, "name"); 
-        $this->assertEquals("admin, $result);
+        $this->assertEquals("admin", $result);
     /**
     * Function result
     */
